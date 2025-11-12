@@ -1,7 +1,11 @@
 library(tidyverse)
 library(readxl)
+library(ggplot2)
 
 base = read_excel("Base Casos.xlsx")
 
 #Boxplot estatura
-boxplot(base$Estatura)
+
+ base %>% 
+  ggplot(mapping = aes(y = base$Estatura)) + 
+  geom_boxplot(fill = "red")
